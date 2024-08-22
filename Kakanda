@@ -51,9 +51,10 @@ local script = G2L["5"];
 		end
 	end)
 	
-	while enabled do
-		game.Players.LocalPlayer.Character.Humanoid.Health = 0
-		wait()
+	while wait() do
+if enabled == true then
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+end
 	end
 end;
 task.spawn(C_5);
