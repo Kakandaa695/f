@@ -1,6 +1,6 @@
 
 
-
+print("Loading")
 local G2L = {};
 
 print("Loaded AutoReset! Enjoy!!!")
