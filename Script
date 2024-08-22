@@ -1,0 +1,63 @@
+
+
+print("Loading")
+local G2L = {};
+
+print("Loaded AutoReset! Enjoy!!!")
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false
+
+
+G2L["2"] = Instance.new("TextButton", G2L["1"]);
+G2L["2"]["TextWrapped"] = true;
+G2L["2"]["TextStrokeTransparency"] = 0;
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["TextScaled"] = true;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(71, 71, 71);
+G2L["2"]["TextSize"] = 14;
+G2L["2"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+G2L["2"]["Size"] = UDim2.new(0, 338, 0, 100);
+G2L["2"]["Name"] = [[AUTORESET]];
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Text"] = [[Disabled]];
+G2L["2"]["Position"] = UDim2.new(0.7191780805587769, 0, 0.42767733335494995, 0);
+
+
+G2L["3"] = Instance.new("UICorner", G2L["2"]);
+
+
+
+G2L["4"] = Instance.new("UIStroke", G2L["2"]);
+G2L["4"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- StarterGui.ScreenGui.AUTORESET.LocalScript
+G2L["5"] = Instance.new("LocalScript", G2L["2"]);
+
+
+-- StarterGui.ScreenGui.AUTORESET.LocalScript
+local function C_5()
+local script = G2L["5"];
+	local enabled = false
+	script.Parent.Activated:Connect(function()
+		if enabled then
+			enabled = false
+			game.TweenService:Create(script.Parent,TweenInfo.new(.5),{TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
+			script.Parent.Text = "Disabled"
+		else
+			enabled = true
+			game.TweenService:Create(script.Parent,TweenInfo.new(.5),{TextColor3 = Color3.fromRGB(68, 255, 0)}):Play()
+			script.Parent.Text = "Enabled"
+		end
+	end)
+	
+	while wait() do
+if enabled == true then
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+end
+	end
+end;
+task.spawn(C_5);
+
+return G2L["1"], require;
