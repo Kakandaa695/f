@@ -54,8 +54,10 @@ local script = G2L["5"];
 	
 	while wait(5) do
 if enabled == true then
+if game.Players.LocalPlayer.Characte:FindFirstChild("Head") then
 game.Players.LocalPlayer.Character.Head:Destroy()
 		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = -10
+end
 end
 	end
 end;
