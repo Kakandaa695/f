@@ -39,27 +39,9 @@ G2L["5"] = Instance.new("LocalScript", G2L["2"]);
 -- StarterGui.ScreenGui.AUTORESET.LocalScript
 local function C_5()
 local script = G2L["5"];
-	local enabled = false
 	script.Parent.Activated:Connect(function()
-		if enabled then
-			enabled = false
-			game.TweenService:Create(script.Parent,TweenInfo.new(.5),{TextColor3 = Color3.fromRGB(255, 0, 0)}):Play()
-			script.Parent.Text = "Disabled"
-		else
-			enabled = true
-			game.TweenService:Create(script.Parent,TweenInfo.new(.5),{TextColor3 = Color3.fromRGB(68, 255, 0)}):Play()
-			script.Parent.Text = "Enabled"
-		end
-	end)
-	
-	while wait(5) do
-if enabled == true then
-if game.Players.LocalPlayer.Characte:FindFirstChild("Head") then
-game.Players.LocalPlayer.Character.Head:Destroy()
 		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = -10
-end
-end
-	end
+	end)
 end;
 task.spawn(C_5);
 
