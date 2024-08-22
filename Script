@@ -43,6 +43,6 @@ local script = G2L["5"];
 		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = -10
 	end)
 end;
-task.spawn(C_5);
+task.spawn(C_5); 
 
 return G2L["1"], require;
